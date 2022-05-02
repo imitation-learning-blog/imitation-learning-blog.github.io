@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>generalization · Blogs of Imitation Learning Research</title>
+  <title>Error Bounds of Imitation Learning - Blogs of Imitation Learning Research</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -23,7 +23,9 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Ziniu Li" />
-  <meta name="description" content="Hugo theme jane example site." />
+  <meta name="description" content="This blog summarizes our work of error bounds of imitating policies and environments, which is presented at NeurIPS 2020.
+" />
+
   <meta name="keywords" content="Hugo, theme, jane" />
 
 
@@ -34,8 +36,8 @@
 <meta name="generator" content="Hugo 0.62.2" />
 
 
-<link rel="canonical" href="https://imitation-learning-blog.github.io/tags/generalization/" />
-<link href="/tags/generalization/index.xml" rel="alternate" type="application/rss+xml" title="Blogs of Imitation Learning Research" />
+<link rel="canonical" href="https://imitation-learning-blog.github.io/post/error-bounds-of-imitation-learning/" />
+
 
 
 
@@ -58,15 +60,23 @@
 
 
 
-<meta property="og:title" content="generalization" />
-<meta property="og:description" content="Hugo theme jane example site." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://imitation-learning-blog.github.io/tags/generalization/" />
-<meta property="og:updated_time" content="2022-05-02T00:00:00+00:00" />
-<meta itemprop="name" content="generalization">
-<meta itemprop="description" content="Hugo theme jane example site."><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="generalization"/>
-<meta name="twitter:description" content="Hugo theme jane example site."/>
+<meta property="og:title" content="Error Bounds of Imitation Learning" />
+<meta property="og:description" content="This blog summarizes our work of error bounds of imitating policies and environments, which is presented at NeurIPS 2020." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://imitation-learning-blog.github.io/post/error-bounds-of-imitation-learning/" />
+<meta property="article:published_time" content="2022-05-02T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-05-02T00:00:00+00:00" />
+<meta itemprop="name" content="Error Bounds of Imitation Learning">
+<meta itemprop="description" content="This blog summarizes our work of error bounds of imitating policies and environments, which is presented at NeurIPS 2020.">
+<meta itemprop="datePublished" content="2022-05-02T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2022-05-02T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="402">
+
+
+
+<meta itemprop="keywords" content="adversarial imitation learning,behavior cloning,generalization," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Error Bounds of Imitation Learning"/>
+<meta name="twitter:description" content="This blog summarizes our work of error bounds of imitating policies and environments, which is presented at NeurIPS 2020."/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -283,55 +293,167 @@
     <main id="main" class="main bg-llight">
       <div class="content-wrapper">
         <div id="content" class="content container">
-          
-
-<section id="archive" class="archive">
-  
+          <article class="post bg-white">
     
-      <div class="archive-title tag">
-        <h2 class="archive-name">Tag: generalization</h2>
+    <header class="post-header">
+      <h1 class="post-title">Error Bounds of Imitation Learning</h1>
+      
+      <div class="post-meta">
+        <time datetime="2022-05-02" class="post-time">
+          2022-05-02
+        </time>
+        <div class="post-category">
+            <a href="https://imitation-learning-blog.github.io/categories/algorithm-analysis/"> algorithm analysis </a>
+            
+          </div>
+        
+
+        
+        
+
+        
+        
       </div>
+    </header>
+
     
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Table of Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents"></nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <p>This blog summarizes our work of <em>error bounds of imitating policies and environments</em>, which is presented at NeurIPS 2020.</p>
+<p>In our NeurIPS 2020 paper <a href="/docs/nips2020_error_bound_paper.pdf">error bounds of imitating policies and environments</a> <a href="#1">[1]</a>, which is a joint work with <a href="http://www.lamda.nju.edu.cn/xut/">Tian Xu</a> and <a href="http://www.lamda.nju.edu.cn/yuy/">Yang Yu</a>, we consider the imitation learning tasks.  Recall that the goal of imitation learning is to obtain a high-quality policy by mimicking expert demonstrations. Various methods such as behavioral cloning (BC) <a href="#2">[2]</a>, apprenticeship learning <a href="#3">[3]</a><a href="#4">[4]</a>, generative adversarial imitation learning (GAIL) <a href="#5">[5]</a> has been proposed and empirically compared. The interesting empirical result is that GAIL often performs well than others in practice. To better understand this, we study the error bounds of these methods. Informally, our main results are</p>
+<ul>
+<li>BC suffers a quadratic error bound w.r.t. the effective planning horizon (a.k.a., the compounding error issue <a href="#6">[6]</a>; while GAIL could enjoy a linear error bound w.r.t. the effective planning horizon due to the state-action distribution matching.</li>
+<li>Based on results from imitating policies, we show that if we apply GAIL to imitate environments, which is often in model-based reinforcement learning (MBRL), the policy evaluation error could be reduced to be linear w.r.t. model bias. This suggests a novel application of GAIL-based algorithms to recover the transition in MBRL.</li>
+</ul>
+<p>The above results are based on the error propagation analysis. The framework is shown in the following figure.</p>
+
+
+    <div style="text-align: center;">
+    <figure>
+        <img src="/images/error-bounds-of-imitation-learning/nips2020_framework.jpg" style="zoom:25%;" />
+        <figcaption>Figure 1. Error propagation of imitating policies.</figcaption>
+    </figure>
+    </div>
+
+
+<p>Under this framework, we see that the error-propagation path of BC (i.e., minimizing policy distribution discrepancy) is longer; hence, it enjoys a larger error bound. In contrast, GAIL is to directly minimize state-action distribution discrepancy and consequently, its error bound is smaller.</p>
+<p>As mentioned before, based on this insight, we could apply GAIL to imitate environments. In this way, the policy evaluation error is small in this empirical environment due to state-action-next-state distribution matching.</p>
+
+
+    <div style="text-align: center;">
+    <figure>
+        <img src="/images/error-bounds-of-imitation-learning/nips2020_gail_imitation_env.png" style="zoom:35%;" />
+        <figcaption>Figure 2. Imitating environments with GAIL.</figcaption>
+    </figure>
+    </div>
+
+
+
+
+<p>
+<span id="1">[1] Xu, Tian, Ziniu Li, and Yang Yu. "Error Bounds of Imitating Policies and Environments." NeurIPS 2020. </span>
+</p>
+
+<p>
+<span id="2">[2] Pomerleau, Dean A. "Efficient training of artificial neural networks for autonomous navigation." Neural computation 3.1 (1991): 88-97. </span>
+</p>
+
+<p>
+<span id="3">[3] Abbeel, Pieter, and Andrew Y. Ng. "Apprenticeship learning via inverse reinforcement learning." ICML 2004. </span>
+</p>
+
+<p>
+<span id="4">[4] Syed, Umar, and Robert E. Schapire. "A game-theoretic approach to apprenticeship learning." NeurIPS 2008. </span>
+</p>
+
+<p>
+<span id="5">[5] Ho, Jonathan, and Stefano Ermon. "Generative adversarial imitation learning." NeurIPS 2016. </span>
+</p>
+
+<p>
+<span id="6">[6] Ross, Stéphane, and Drew Bagnell. "Efficient reductions for imitation learning." AISTATS 2010. </span>
+</p>
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Ziniu Li</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+      2022-05-02
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://imitation-learning-blog.github.io/tags/adversarial-imitation-learning/">adversarial imitation learning</a>
+          <a href="https://imitation-learning-blog.github.io/tags/behavior-cloning/">behavior cloning</a>
+          <a href="https://imitation-learning-blog.github.io/tags/generalization/">generalization</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+        
+      </nav>
+    </footer>
+  </article>
+
+  
   
 
   
-    <div class="archive-post">
-      <time datetime="2022-05-02" class="archive-post-time">
-        2022-05-02
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/error-bounds-of-imitation-learning/" class="archive-post-link">
-          Error Bounds of Imitation Learning
-        </a>
-      </span>
+  
+
+  
+
+  
+  
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "imitation-learning-blog/imitation-learning-blog.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
     </div>
   
-</section>
-
-
-
-
-
 
   
-  
+
   
 
   
-  
+
+    
 
   
-  
-
-  
-  
-
-  
-  
-
-
-
-
 
         </div>
       </div>

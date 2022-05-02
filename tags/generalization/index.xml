@@ -12,11 +12,11 @@
     
     
     <item>
-      <title>Error Bounds of Imitation</title>
-      <link>https://imitation-learning-blog.github.io/post/error-bounds-of-imitation/</link>
+      <title>Error Bounds of Imitation Learning</title>
+      <link>https://imitation-learning-blog.github.io/post/error-bounds-of-imitation-learning/</link>
       <pubDate>Mon, 02 May 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://imitation-learning-blog.github.io/post/error-bounds-of-imitation/</guid>
+      <guid>https://imitation-learning-blog.github.io/post/error-bounds-of-imitation-learning/</guid>
       <description>&lt;p&gt;This blog summarizes our work of &lt;em&gt;error bounds of imitating policies and environments&lt;/em&gt;, which is presented at NeurIPS 2020.&lt;/p&gt;</description>
     </item>
     
