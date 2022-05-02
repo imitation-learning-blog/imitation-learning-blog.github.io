@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blogs of Imitation Learning Research</title>
+    <link>https://imitation-learning-blog.github.io/</link>
+    <description>Recent content on Blogs of Imitation Learning Research</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 02 May 2022 00:00:00 +0000</lastBuildDate>
+    
+        <atom:link href="https://imitation-learning-blog.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>About</title>
+      <link>https://imitation-learning-blog.github.io/about/</link>
+      <pubDate>Mon, 02 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://imitation-learning-blog.github.io/about/</guid>
+      
+        <description>&lt;p&gt;This website is mainly maintained by &lt;a href=&#34;http://www.liziniu.org/&#34;&gt;Ziniu Li&lt;/a&gt;. The goal of this website is to provide a platform to summarize previous works, exchange ideas, and promote future works. If you want to contribute a blog, please contact Ziniu Li via &lt;a href=&#34;mailto:ziniuli@link.cuhk.edu.cn&#34;&gt;ziniuli@link.cuhk.edu.cn&lt;/a&gt;&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Error Bounds of Imitation</title>
+      <link>https://imitation-learning-blog.github.io/post/error-bounds-of-imitation/</link>
+      <pubDate>Mon, 02 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://imitation-learning-blog.github.io/post/error-bounds-of-imitation/</guid>
+      
+        <description>&lt;p&gt;This blog summarizes our work of &lt;em&gt;error bounds of imitating policies and environments&lt;/em&gt;, which is presented at NeurIPS 2020.&lt;/p&gt;
+&lt;p&gt;In our NeurIPS 2020 paper &lt;a href=&#34;https://imitation-learning-blog.github.io/docs/nips2020_error_bound_paper.pdf&#34;&gt;error bounds of imitating policies and environments&lt;/a&gt; &lt;a href=&#34;#1&#34;&gt;[1]&lt;/a&gt;, which is a joint work with &lt;a href=&#34;http://www.lamda.nju.edu.cn/xut/&#34;&gt;Tian Xu&lt;/a&gt; and &lt;a href=&#34;http://www.lamda.nju.edu.cn/yuy/&#34;&gt;Yang Yu&lt;/a&gt;, we consider the imitation learning tasks.  Recall that the goal of imitation learning is to obtain a high-quality policy by mimicking expert demonstrations. Various methods such as behavioral cloning (BC) &lt;a href=&#34;#2&#34;&gt;[2]&lt;/a&gt;, apprenticeship learning &lt;a href=&#34;#3&#34;&gt;[3]&lt;/a&gt;&lt;a href=&#34;#4&#34;&gt;[4]&lt;/a&gt;, generative adversarial imitation learning (GAIL) &lt;a href=&#34;#5&#34;&gt;[5]&lt;/a&gt; has been proposed and empirically compared. The interesting empirical result is that GAIL often performs well than others in practice. To better understand this, we study the error bounds of these methods. Informally, our main results are&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;BC suffers a quadratic error bound w.r.t. the effective planning horizon (a.k.a., the compounding error issue &lt;a href=&#34;#6&#34;&gt;[6]&lt;/a&gt;; while GAIL could enjoy a linear error bound w.r.t. the effective planning horizon due to the state-action distribution matching.&lt;/li&gt;
+&lt;li&gt;Based on results from imitating policies, we show that if we apply GAIL to imitate environments, which is often in model-based reinforcement learning (MBRL), the policy evaluation error could be reduced to be linear w.r.t. model bias. This suggests a novel application of GAIL-based algorithms to recover the transition in MBRL.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The above results are based on the error propagation analysis. The framework is shown in the following figure.&lt;/p&gt;
+
+
+    &lt;div style=&#34;text-align: center;&#34;&gt;
+    &lt;figure&gt;
+        &lt;img src=&#34;https://imitation-learning-blog.github.io/images/error-bounds-of-imitation/nips2020_framework.jpg&#34; style=&#34;zoom:25%;&#34; /&gt;
+        &lt;figcaption&gt;Figure 1. Error propagation of imitating policies.&lt;/figcaption&gt;
+    &lt;/figure&gt;
+    &lt;/div&gt;
+
+
+&lt;p&gt;Under this framework, we see that the error-propagation path of BC (i.e., minimizing policy distribution discrepancy) is longer; hence, it enjoys a larger error bound. In contrast, GAIL is to directly minimize state-action distribution discrepancy and consequently, its error bound is smaller.&lt;/p&gt;
+&lt;p&gt;As mentioned before, based on this insight, we could apply GAIL to imitate environments. In this way, the policy evaluation error is small in this empirical environment due to state-action-next-state distribution matching.&lt;/p&gt;
+
+
+    &lt;div style=&#34;text-align: center;&#34;&gt;
+    &lt;figure&gt;
+        &lt;img src=&#34;https://imitation-learning-blog.github.io/images/error-bounds-of-imitation/nips2020_gail_imitation_env.png&#34; style=&#34;zoom:35%;&#34; /&gt;
+        &lt;figcaption&gt;Figure 2. Imitating environments with GAIL.&lt;/figcaption&gt;
+    &lt;/figure&gt;
+    &lt;/div&gt;
+
+
+
+
+&lt;p&gt;
+&lt;span id=&#34;1&#34;&gt;[1] Xu, Tian, Ziniu Li, and Yang Yu. &#34;Error Bounds of Imitating Policies and Environments.&#34; NeurIPS 2020. &lt;/span&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+&lt;span id=&#34;2&#34;&gt;[2] Pomerleau, Dean A. &#34;Efficient training of artificial neural networks for autonomous navigation.&#34; Neural computation 3.1 (1991): 88-97. &lt;/span&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+&lt;span id=&#34;3&#34;&gt;[3] Abbeel, Pieter, and Andrew Y. Ng. &#34;Apprenticeship learning via inverse reinforcement learning.&#34; ICML 2004. &lt;/span&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+&lt;span id=&#34;4&#34;&gt;[4] Syed, Umar, and Robert E. Schapire. &#34;A game-theoretic approach to apprenticeship learning.&#34; NeurIPS 2008. &lt;/span&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+&lt;span id=&#34;5&#34;&gt;[5] Ho, Jonathan, and Stefano Ermon. &#34;Generative adversarial imitation learning.&#34; NeurIPS 2016. &lt;/span&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+&lt;span id=&#34;6&#34;&gt;[6] Ross, Stéphane, and Drew Bagnell. &#34;Efficient reductions for imitation learning.&#34; AISTATS 2010. &lt;/span&gt;
+&lt;/p&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Blogs of Imitation Learning Research</title>
+    <link>https://imitation-learning-blog.github.io/post/</link>
+    <description>Recent content in Posts on Blogs of Imitation Learning Research</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 02 May 2022 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://imitation-learning-blog.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Error Bounds of Imitation</title>
+      <link>https://imitation-learning-blog.github.io/post/error-bounds-of-imitation/</link>
+      <pubDate>Mon, 02 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://imitation-learning-blog.github.io/post/error-bounds-of-imitation/</guid>
+      <description>&lt;p&gt;This blog summarizes our work of &lt;em&gt;error bounds of imitating policies and environments&lt;/em&gt;, which is presented at NeurIPS 2020.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

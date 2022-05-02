@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://imitation-learning-blog.github.io/sitemap.xml

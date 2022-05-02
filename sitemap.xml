@@ -1,0 +1,74 @@
+<?xml-stylesheet type="text/xsl" href="https://imitation-learning-blog.github.io/sitemap.xsl"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>https://imitation-learning-blog.github.io/about/</loc>
+    <lastmod>2022-05-02T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://imitation-learning-blog.github.io/tags/adversarial-imitation-learning/</loc>
+    <lastmod>2022-05-02T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://imitation-learning-blog.github.io/categories/algorithm-analysis/</loc>
+    <lastmod>2022-05-02T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://imitation-learning-blog.github.io/tags/behavior-cloning/</loc>
+    <lastmod>2022-05-02T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://imitation-learning-blog.github.io/</loc>
+    <lastmod>2022-05-02T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://imitation-learning-blog.github.io/categories/</loc>
+    <lastmod>2022-05-02T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://imitation-learning-blog.github.io/post/error-bounds-of-imitation/</loc>
+    <lastmod>2022-05-02T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://imitation-learning-blog.github.io/tags/generalization/</loc>
+    <lastmod>2022-05-02T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://imitation-learning-blog.github.io/post/</loc>
+    <lastmod>2022-05-02T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://imitation-learning-blog.github.io/tags/</loc>
+    <lastmod>2022-05-02T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+</urlset>
